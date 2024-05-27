@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  static const String baseUrl = 'http://10.3.43.4:9000';
+  static const String baseUrl = 'https://sans-agv.azurewebsites.net';
 
   Future<String?> login(String username, String password) async {
     final client = http.Client();

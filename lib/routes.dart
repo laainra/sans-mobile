@@ -8,7 +8,7 @@ final routes = {
     '/': (context) => SplashScreenPage(),
     '/login': (context) => LoginPage(),
     '/dashboard': (context) => DashboardPage(),
-    '/agv-lidar': (context) => LidarPage(),
-    '/agv-line': (context) => LinePage(),
+    '/lidar': (context) => LidarPage(),
+    '/line': (context) => LinePage(),
 };
 

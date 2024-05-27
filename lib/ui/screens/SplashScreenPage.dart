@@ -29,12 +29,12 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: Center(
         child: Image.asset(
-          "assets/images/logo.png",
-          width: 600,
-          height: 600,
+          "assets/images/logo.jpg",
+          width: 200,
+          height: 200,
         ),
       ),
     );

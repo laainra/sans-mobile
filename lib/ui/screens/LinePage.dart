@@ -9,7 +9,7 @@ class LinePage extends StatefulWidget {
 
 class _LinePageState extends State<LinePage> {
   final WebSocketChannel _channel = WebSocketChannel.connect(
-    Uri.parse('ws://10.3.43.4:9000/ws/dashboard/line'),
+    Uri.parse('wss://sans-agv.azurewebsites.net/ws/dashboard/line'),
   );
   bool _agvOn = false;
   double _speed = 50;
@@ -63,16 +63,73 @@ class _LinePageState extends State<LinePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('AGV Line Control'),
+                 backgroundColor: Colors.transparent,
+            flexibleSpace: Container(
+                decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromRGBO(60, 39, 138, 1),
+                  Colors.lightBlueAccent
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ))
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             // AGV On/Off Button
-            ElevatedButton(
-              onPressed: _toggleAGV,
-              child: Text(_agvOn ? 'Turn Off AGV' : 'Turn On AGV'),
-            ),
+Container(
+  width: double.infinity,
+  height: 50.0,
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(5.0),
+    gradient: LinearGradient(
+      colors: [
+        Color.fromRGBO(60, 39, 138, 1),
+        Colors.lightBlueAccent,
+      ],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    ),
+  ),
+  child: ElevatedButton(
+    onPressed: _toggleAGV,
+    style: ElevatedButton.styleFrom(
+      padding: EdgeInsets.zero, // Remove padding
+
+      elevation: 0,
+      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+
+      
+    ),
+    child: Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5.0),
+        gradient: LinearGradient(
+          colors: [
+            Color.fromRGBO(60, 39, 138, 1),
+            Colors.lightBlueAccent,
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: Center(
+        child: Text(
+          _agvOn ? 'Turn Off AGV' : 'Turn On AGV',
+          style: TextStyle(
+            fontSize: 20,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    ),
+  ),
+),
+
             SizedBox(height: 16),
 
             // Speed Slider
